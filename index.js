@@ -2,8 +2,6 @@
 require('dotenv').config();
 const { signUpUser } = require('./lib/utils/user-utils');
 const chalk = require('chalk');
-const prompt = require('prompt-sync')();
-const cookie = require('cookie');
 const inquirer = require('inquirer');
 
 const setUser = async () => {
@@ -11,21 +9,24 @@ const setUser = async () => {
     .prompt([{
       prefix: '*',
       name: 'username',
-      message: 'Name your termagotchi!',
+      message: 'Name your Termagotchi!',
+    },
+    {
+      prefix: '*',
+      name: 'password',
+      type: 'password',
+      message: 'Enter your password',
     },
     ])
-    .then((answer) => {
+    .then((answers) => {
       console.log(
         chalk.bold(
-          `Say hi to ${answer.username}!`
+          `Say hi to ${answers.username}!`
         )
       );
-      return signUpUser(answer.username);
+      return signUpUser(answers.username, answers.password);
     });
 
 };
 
 setUser();
-
-
-console.log('hello world');

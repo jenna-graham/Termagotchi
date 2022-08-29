@@ -47,7 +47,8 @@
     "inquirer": "^8.0.0",
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.7.3",
-    "prompt-sync": "^4.2.0"
+    "prompt-sync": "^4.2.0",
+    "yargs-parser": "^21.1.1"
   },
   "directories": {
     "lib": "lib"
