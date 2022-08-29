@@ -8,7 +8,7 @@ const mockUser = {
   password: '123456',
 };
 
-describe('backend-express-template routes', () => {
+describe('testing user routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
