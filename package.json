@@ -1,8 +1,8 @@
 {
-  "name": "backend-express-template",
+  "name": "termagotchi",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "The Golden Rule: 🦸 🦸‍♂️ Stop starting and start finishing. 🏁",
+  "main": "index.js",
   "type": "commonjs",
   "scripts": {
     "test": "jest --verbose --runInBand --testLocationInResults --setupFiles dotenv/config --passWithNoTests",
@@ -11,6 +11,9 @@
     "start:watch": "nodemon -r dotenv/config server.js",
     "setup-db": "node -r dotenv/config setup-db.js",
     "setup-heroku": "heroku run npm run setup-db"
+  },
+  "bin": {
+    "gotchi": "./index.js"
   },
   "jest": {
     "testEnvironment": "node"
@@ -33,12 +36,28 @@
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "chalk": "^4.1.2",
+    "cookie": "^0.5.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
+    "cross-fetch": "^3.1.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "inquirer": "^8.0.0",
     "jsonwebtoken": "^8.5.1",
-    "pg": "^8.7.3"
-  }
+    "pg": "^8.7.3",
+    "prompt-sync": "^4.2.0"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jenna-graham/Termagotchi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jenna-graham/Termagotchi/issues"
+  },
+  "homepage": "https://github.com/jenna-graham/Termagotchi#readme"
 }
