@@ -4,6 +4,31 @@ require('dotenv').config();
 const { signUpUser } = require('./lib/utils/utils');
 const chalk = require('chalk');
 const inquirer = require('inquirer');
+const figlet = require('figlet');
+const sleep = (ms = 3000) => new Promise((r) => setTimeout(r, ms));
+
+async function startStory() {
+  figlet.text(
+    'Termagotchi',
+    {
+      font: 'puffy',
+      horizontalLayout: 'fitted',
+      verticalLayout: 'fitted',
+      width: 80,
+      whitespaceBreak: true
+    },
+    (err, data) => {
+      if (err) {
+        console.log('Something went wrong...');
+        console.dir(err);
+        return;
+      }
+      console.log(chalk.magenta(data));
+    });
+  await sleep();
+  console.clear();
+}
+
 
 const setUser = async () => {
   inquirer
@@ -53,4 +78,5 @@ const storyLine = () => {
 
 //     });
 
-setUser();
+// setUser();
+startStory().then(() => setUser());
