@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 require('dotenv').config();
-const { signUpUser } = require('./lib/utils/user-utils');
+const { signUpUser, getPromptsById } = require('./lib/utils/utils');
 const chalk = require('chalk');
 const inquirer = require('inquirer');
 
@@ -25,8 +25,23 @@ const setUser = async () => {
         )
       );
       return signUpUser(answers.username, answers.password);
+
+    })
+    .then((user) => {
+      storyLine(1, user);
     });
 
 };
 
+const storyLine = async (storyId) => {
+  let currentPrompts = {};
+  getPromptsById(storyId)
+    .then((prompts) => {
+      currentPrompts = prompts;
+      return getPromptsById(prompts.neglect_path_id);
+
+    });
+
+};
+    
 setUser();
