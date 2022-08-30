@@ -5,7 +5,7 @@ const { signUpUser, getPromptsById } = require('./lib/utils/utils');
 const chalk = require('chalk');
 const inquirer = require('inquirer');
 const figlet = require('figlet');
-const sleep = (ms = 3000) => new Promise((r) => setTimeout(r, ms));
+const sleep = (ms = 8000) => new Promise((r) => setTimeout(r, ms));
 
 async function startStory() {
   figlet.text(
@@ -23,7 +23,7 @@ async function startStory() {
         console.dir(err);
         return;
       }
-      console.log(chalk.magenta(data));
+      console.log(chalk.bold.magenta(data));
     });
   await sleep();
   console.clear();
