@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 require('dotenv').config();
 const { signUpUser } = require('./lib/utils/utils');
 const chalk = require('chalk');
