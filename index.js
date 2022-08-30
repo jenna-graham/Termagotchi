@@ -5,9 +5,10 @@ const { signUpUser, getPromptsById } = require('./lib/utils/utils');
 const chalk = require('chalk');
 const inquirer = require('inquirer');
 const figlet = require('figlet');
+
 const { excited } = require('./lib/utils/ascii');
 
-const sleep = (ms = 8000) => new Promise((r) => setTimeout(r, ms));
+const sleep = (ms = 4000) => new Promise((r) => setTimeout(r, ms));
 
 async function startStory() {
   figlet.text(
@@ -49,6 +50,7 @@ const setUser = async () => {
     ])
     .then((answers) => {
       console.log(chalk.bold(`Say hi to ${answers.username}!`));
+      console.log(excited);
       return signUpUser(answers.username, answers.password);
     })
     .then((user) => {
@@ -116,5 +118,3 @@ const storyLine = () => {
 
 // setUser();
 startStory().then(() => setUser());
-
-
