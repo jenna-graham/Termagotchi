@@ -1,9 +1,8 @@
 #!/usr/bin/env node
 require('dotenv').config();
-const { signUpUser, getPromptsById } = require('./lib/utils/utils');
+const { signUpUser } = require('./lib/utils/utils');
 const chalk = require('chalk');
 const inquirer = require('inquirer');
-const { prompt, happy_choice, neglect_choice } = getPromptsById(1);
 
 const setUser = async () => {
   inquirer
