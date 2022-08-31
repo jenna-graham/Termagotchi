@@ -11,10 +11,11 @@ describe('testing action routes', () => {
     const res = await request(app).get('/actions/1');
     expect(res.body).toEqual({
       id: expect.any(String),
-      prompt:
-        'Congratulations on your new pet! You will want to take care of them so they will love you back (neglected pets never stay too long)',
-      happy_choice: 'smile and say hello',
-      neglect_choice: 'go about your busy life',
+      prompt: 'Your Termagotchi is home with you and looks bored',
+      happy_choice:
+        'Take your Termagotchi outside and watch the adventure unfold.',
+      neglect_choice:
+        'Walk to the living room and turn on the TV. You are tired and have no time to play.',
       happy_path_id: 2,
       neglect_path_id: 3,
       is_good: null,

@@ -33,7 +33,7 @@ INSERT INTO users(username, password_hash) VALUES
 ('Cupcake', '$2b$10$8NtZGUwUl.GTf.Ol206vmeDYMwuBUAZjNOCfZ2zNcTbdi4H6mNb4e');
 
 INSERT INTO actions (id, prompt, happy_choice, neglect_choice, happy_path_id, neglect_path_id, is_good) VALUES
-(1, 'Your Termagotchi is home with you and looks bored', 'Take your termagotchi outside and watch the adventure unfold.', 'Walk to the living room and turn on the TV. You are tired and have no time to play.', 2, 3, null),
+(1, 'Your Termagotchi is home with you and looks bored', 'Take your Termagotchi outside and watch the adventure unfold.', 'Walk to the living room and turn on the TV. You are tired and have no time to play.', 2, 3, null),
 (2, 'You are walking down the street when you notice a forested trail.', 'So Exciting! Take your Termagotchi on a walk through the forest.', 'There is no time for new adventures! Continue walking your normal route.', 4, 5, null),
 (3, 'Your Termagotchi is now hungry, they ask you for some dinner, spaghetti sounds good to them.', 'Get to cookin'' and add some chocolate syrup on top because you know it is their favorite.', 'Tell your Termagotchi you will get to it later, you are deep in the Game of Thrones series.', 6, 7, null),
 (4, 'You come accross a meadow and se a fairy ring of mushrooms. Your Termagotchi immediately runs up to it and starts eating it.', 'It''s been awhile since your last trip. What the heck, join them and eat yo shrooms', 'Scold them and express your disapointment. Good digital pets don''t do drugs!', 17, 9, null),
