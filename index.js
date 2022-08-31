@@ -6,9 +6,11 @@ const chalk = require('chalk');
 const inquirer = require('inquirer');
 const figlet = require('figlet');
 
-const { excited } = require('./lib/utils/ascii');
+const { excited, test } = require('./lib/utils/ascii');
 
 const sleep = (ms = 3000) => new Promise((r) => setTimeout(r, ms));
+
+
 
 async function startStory() {
   figlet.text(
@@ -44,7 +46,7 @@ const setUser = async () => {
     ])
     .then((answers) => {
       if(answers.auth === true) {
-        console.log(chalk.rgb(232, 133, 52)(excited));
+        console.log(chalk.rgb(232, 133, 52)(test));
         storyLine();
       }
       if(answers.auth === false) {
@@ -70,18 +72,20 @@ const setUser = async () => {
       ])
       .then((answers) => {
         console.log(chalk.bold(`Say hi to ${answers.username}!`));
-        console.log(chalk.rgb(232, 133, 52)(excited));
+        console.log(chalk.rgb(232, 133, 52)(test));
         return signUpUser(answers.username, answers.password);
       })
-      .then((user) => {
-        storyLine(user);
+      .then(() => {
+        storyLine(1);
       });
   };
 };
-              
-const storyLine = () => {
-  getPromptsById(1).then((prompts) => {
-    const { prompt, happy_choice, neglect_choice } = prompts;
+
+const storyLine = (id = 1) => {
+  console.log(id);
+  getPromptsById(id).then((prompts) => {
+    console.log(prompts);
+    const { prompt, happy_choice, neglect_choice, happy_path_id, neglect_path_id } = prompts;
     inquirer
       .prompt([
         {
@@ -93,10 +97,18 @@ const storyLine = () => {
       ])
       .then((options) => {
         console.log(options);
+        if(options.options === happy_choice) {
+          storyLine(happy_path_id);
+        }
+        if(options.options === neglect_choice) {
+          storyLine(neglect_path_id);
+        }
+      })
+      .catch(error => {
+        console.log(error);
       });
   });
 };
-
 // const storyLine = async (id) => {
 //   getPromptsById(id).then((prompts) => {
 //     prompts;
