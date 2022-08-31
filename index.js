@@ -44,7 +44,7 @@ const setUser = async () => {
     ])
     .then((answers) => {
       if(answers.auth === true) {
-        console.log(excited);
+        console.log(chalk.rgb(232, 133, 52)(excited));
         storyLine();
       }
       if(answers.auth === false) {
@@ -70,7 +70,7 @@ const setUser = async () => {
       ])
       .then((answers) => {
         console.log(chalk.bold(`Say hi to ${answers.username}!`));
-        console.log(excited);
+        console.log(chalk.rgb(232, 133, 52)(excited));
         return signUpUser(answers.username, answers.password);
       })
       .then((user) => {
