@@ -30,7 +30,7 @@ CREATE TABLE user_actions (
 );
 
 INSERT INTO users(username, password_hash) VALUES
-('Cupcake', '123456');
+('Cupcake', '$2b$10$8NtZGUwUl.GTf.Ol206vmeDYMwuBUAZjNOCfZ2zNcTbdi4H6mNb4e');
 
 INSERT INTO actions (id, prompt, happy_choice, neglect_choice, happy_path_id, neglect_path_id, is_good) VALUES
 (1, 'Congratulations on your new pet! You will want to take care of them so they will love you back (neglected pets never stay too long)', 'smile and say hello', 'go about your busy life', 2, 3, null);

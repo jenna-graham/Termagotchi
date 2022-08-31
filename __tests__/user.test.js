@@ -22,6 +22,16 @@ describe('testing user routes', () => {
     });
   });
 
+  it('POST /users/sessions should login an existing user', async () => {
+    const agent = request.agent(app);
+    const res = await agent.post('/users/sessions').send({
+      username: 'Cupcake',
+      password: '123456',
+    });
+    console.log(res.body);
+    expect(res.status).toEqual(200);
+  });
+
   afterAll(() => {
     pool.end();
   });

@@ -37,15 +37,9 @@ const setUser = async () => {
   inquirer
     .prompt([
       {
-        prefix: '*',
-        name: 'username',
-        message: 'Name your Termagotchi!',
-      },
-      {
-        prefix: '*',
-        name: 'password',
-        type: 'password',
-        message: 'Enter your password',
+        name: 'auth',
+        type: 'confirm',
+        message: 'Do you already have an account?',
       },
     ])
     .then((answers) => {
@@ -53,11 +47,40 @@ const setUser = async () => {
       console.log(excited);
       return signUpUser(answers.username, answers.password);
     })
-    .then((user) => {
-      storyLine(user);
+    .then((answers) => {
+      if(answers.auth === true) {
+        storyLine();
+      }
+      if(answers.auth === false) {
+        signUp();
+      }
     });
+    
+  const signUp = async () => {
+    inquirer
+      .prompt([
+        {
+          prefix: '*',
+          name: 'username',
+          message: 'Name your Termagotchi!',
+        },
+        {
+          prefix: '*',
+          name: 'password',
+          type: 'password',
+          message: 'Enter your password',
+        },
+      ])
+      .then((answers) => {
+        console.log(chalk.bold(`Say hi to ${answers.username}!`));
+        return signUpUser(answers.username, answers.password);
+      })
+      .then((user) => {
+        storyLine(user);
+      });
+  };
 };
-
+              
 const storyLine = () => {
   getPromptsById(1).then((prompts) => {
     const { prompt, happy_choice, neglect_choice } = prompts;
