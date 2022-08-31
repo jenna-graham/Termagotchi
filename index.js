@@ -3,10 +3,12 @@
 require('dotenv').config();
 const { signUpUser, getPromptsById } = require('./lib/utils/utils');
 const chalk = require('chalk');
+const chalkRainbow = require('chalk-rainbow');
+const gradient = require('gradient-string');
 const inquirer = require('inquirer');
 const figlet = require('figlet');
 
-const { test } = require('./lib/utils/ascii');
+const { excited } = require('./lib/utils/ascii');
 
 const sleep = (ms = 3000) => new Promise((r) => setTimeout(r, ms));
 
@@ -28,7 +30,8 @@ async function startStory() {
         console.dir(err);
         return;
       }
-      console.log(chalk.bold.magenta(data));
+      console.log(gradient.rainbow(data));
+      console.log(chalkRainbow(data));
     });
   await sleep();
   console.clear();
@@ -46,7 +49,7 @@ const setUser = async () => {
     ])
     .then((answers) => {
       if(answers.auth === true) {
-        console.log(chalk.rgb(232, 133, 52)(test));
+        console.log(gradient.fruit(excited));
         storyLine();
       }
       if(answers.auth === false) {
@@ -72,7 +75,7 @@ const setUser = async () => {
       ])
       .then((answers) => {
         console.log(chalk.bold(`Say hi to ${answers.username}!`));
-        console.log(chalk.rgb(232, 133, 52)(test));
+        console.log(gradient.retro(excited));
         return signUpUser(answers.username, answers.password);
       })
       .then(() => {
