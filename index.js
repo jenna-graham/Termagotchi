@@ -8,7 +8,7 @@ const figlet = require('figlet');
 
 const { excited } = require('./lib/utils/ascii');
 
-const sleep = (ms = 4000) => new Promise((r) => setTimeout(r, ms));
+const sleep = (ms = 3000) => new Promise((r) => setTimeout(r, ms));
 
 async function startStory() {
   figlet.text(
@@ -43,18 +43,15 @@ const setUser = async () => {
       },
     ])
     .then((answers) => {
-      console.log(chalk.bold(`Say hi to ${answers.username}!`));
-      console.log(excited);
-      return signUpUser(answers.username, answers.password);
-    })
-    .then((answers) => {
       if(answers.auth === true) {
+        console.log(excited);
         storyLine();
       }
       if(answers.auth === false) {
         signUp();
       }
     });
+
     
   const signUp = async () => {
     inquirer
@@ -73,6 +70,7 @@ const setUser = async () => {
       ])
       .then((answers) => {
         console.log(chalk.bold(`Say hi to ${answers.username}!`));
+        console.log(excited);
         return signUpUser(answers.username, answers.password);
       })
       .then((user) => {
