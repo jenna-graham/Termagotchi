@@ -6,7 +6,7 @@ const chalk = require('chalk');
 const inquirer = require('inquirer');
 const figlet = require('figlet');
 
-const { excited, test } = require('./lib/utils/ascii');
+const { test } = require('./lib/utils/ascii');
 
 const sleep = (ms = 3000) => new Promise((r) => setTimeout(r, ms));
 
