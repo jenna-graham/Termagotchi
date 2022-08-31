@@ -4,6 +4,34 @@ require('dotenv').config();
 const { signUpUser, getPromptsById } = require('./lib/utils/utils');
 const chalk = require('chalk');
 const inquirer = require('inquirer');
+const figlet = require('figlet');
+
+const { excited } = require('./lib/utils/ascii');
+
+const sleep = (ms = 4000) => new Promise((r) => setTimeout(r, ms));
+
+async function startStory() {
+  figlet.text(
+    'Termagotchi',
+    {
+      font: 'puffy',
+      horizontalLayout: 'fitted',
+      verticalLayout: 'fitted',
+      width: 80,
+      whitespaceBreak: true
+    },
+    (err, data) => {
+      if (err) {
+        console.log('Something went wrong...');
+        console.dir(err);
+        return;
+      }
+      console.log(chalk.bold.magenta(data));
+    });
+  await sleep();
+  console.clear();
+}
+
 
 const setUser = async () => {
   inquirer
@@ -14,6 +42,11 @@ const setUser = async () => {
         message: 'Do you already have an account?',
       },
     ])
+    .then((answers) => {
+      console.log(chalk.bold(`Say hi to ${answers.username}!`));
+      console.log(excited);
+      return signUpUser(answers.username, answers.password);
+    })
     .then((answers) => {
       if(answers.auth === true) {
         storyLine();
@@ -106,4 +139,8 @@ const storyLine = () => {
 
 //     });
 
-setUser();
+// setUser();
+
+startStory().then(() => setUser());                        
+
+
