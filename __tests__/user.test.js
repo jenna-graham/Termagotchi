@@ -28,7 +28,6 @@ describe('testing user routes', () => {
       username: 'Cupcake',
       password: '123456',
     });
-    console.log(res.body);
     expect(res.status).toEqual(200);
   });
 

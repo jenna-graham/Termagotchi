@@ -20,17 +20,19 @@ CREATE TABLE actions (
     is_good BOOLEAN
 );
 
-CREATE TABLE user_actions (
-    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    path_id BIGINT,
-    user_id BIGINT,
-    -- pet_owner BOOLEAN,
-    FOREIGN KEY (path_id) REFERENCES actions(id),
-    FOREIGN KEY (user_id) REFERENCES users(id)
-);
+-- CREATE TABLE user_actions (
+--     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+--     path_id BIGINT,
+--     user_id BIGINT,
+--     -- pet_owner BOOLEAN,
+--     FOREIGN KEY (path_id) REFERENCES actions(id),
+--     FOREIGN KEY (user_id) REFERENCES users(id)
+-- );
 
 INSERT INTO users(username, password_hash) VALUES
 ('Cupcake', '$2b$10$8NtZGUwUl.GTf.Ol206vmeDYMwuBUAZjNOCfZ2zNcTbdi4H6mNb4e');
 
 INSERT INTO actions (id, prompt, happy_choice, neglect_choice, happy_path_id, neglect_path_id, is_good) VALUES
-(1, 'Congratulations on your new pet! You will want to take care of them so they will love you back (neglected pets never stay too long)', 'smile and say hello', 'go about your busy life', 2, 3, null);
+(1, 'Congratulations on your new pet! You will want to take care of them so they will love you back (neglected pets never stay too long)', 'smile and say hello', 'go about your busy life', 2, 3, null),
+(2, 'You decided to be a nice, good for you', 'happy', 'bad', 1, 3, null),
+(3, 'What a fucking dick!', 'do better', 'Who raised you?', 2, 3, null);
