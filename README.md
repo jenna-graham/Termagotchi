@@ -1,17 +1,5 @@
-# Template for Backend Express
+# Termagotchi: A terminal based, Tamagotchi inspired, choose your own adventure story.
 
-The Golden Rule:
-🦸 🦸‍♂️ Stop starting and start finishing. 🏁
+Developers: Jenna Graham, Jessica Martin, Mariah Schock, Colter Garrison
 
-If you work on more than one feature at a time, you are guaranteed to multiply your bugs and your anxiety.
-
-## Scripts
-
-| command                | description                                                                         |
-| ---------------------- | ----------------------------------------------------------------------------------- |
-| `npm start`            | starts the app - should only be used in production as changes will not get reloaded |
-| `npm run start:watch`  | runs the app using `nodemon` which watches for changes and reloads the app          |
-| `npm test`             | runs the tests once                                                                 |
-| `npm run test:watch`   | continually watches and runs the tests when files are updated                       |
-| `npm run setup-db`     | sets up the database locally                                                        |
-| `npm run setup-heroku` | sets up the database on heroku                                                      |
+To get started run: "npm the-termagotchi" in your terminal (without the double quotes)
