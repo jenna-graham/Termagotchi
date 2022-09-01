@@ -31,6 +31,12 @@ describe('testing user routes', () => {
     expect(res.status).toEqual(200);
   });
 
+  it('DELETE /users/sessions should log out user', async () => {
+    const agent = request.agent(app);
+    const res = await agent.delete('/users/sessions');
+    expect(res.status).toBe(204);
+  });
+
   afterAll(() => {
     pool.end();
   });

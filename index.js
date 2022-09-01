@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
 require('dotenv').config();
-const { signUpUser, getPromptsById, signInUser } = require('./lib/utils/utils');
+const { signUpUser, getPromptsById, signInUser, logOutUser } = require('./lib/utils/utils');
 const chalk = require('chalk');
 const chalkRainbow = require('chalk-rainbow');
 const gradient = require('gradient-string');
@@ -28,7 +28,6 @@ async function startStory() {
         console.dir(err);
         return;
       }
-      console.log(gradient.rainbow(data));
       console.log(chalkRainbow(data));
     }
   );
@@ -106,6 +105,10 @@ const signUp = async () => {
 };
 
 const storyLine = (id = 1) => {
+  if (id === 0) {
+    console.log('You are now logged out');
+    return logOutUser();
+  }
   getPromptsById(id).then((prompts) => {
     const {
       prompt,
@@ -119,16 +122,18 @@ const storyLine = (id = 1) => {
         {
           name: 'options',
           type: 'list',
-          message: prompt,
+          message: chalk.greenBright.bgBlack(prompt),
           choices: [happy_choice, neglect_choice],
         },
       ])
       .then((options) => {
         console.log(options);
         if (options.options === happy_choice) {
+          console.clear();
           storyLine(happy_path_id);
         }
         if (options.options === neglect_choice) {
+          console.clear();
           storyLine(neglect_path_id);
         }
       })
