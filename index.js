@@ -10,12 +10,21 @@ const figlet = require('figlet');
 const sound = require('sound-play');
 const path = require('path');
 const filePath = path.join(__dirname, 'sound.mp3');
-const { excited } = require('./lib/utils/ascii');
+const volume = 0.1;
+const { 
+  excited, 
+  squirrel,
+  fire, 
+} = require('./lib/utils/ascii');
 
 const sleep = (ms = 3000) => new Promise((r) => setTimeout(r, ms));
+const asciiMap = { 
+  9: chalk.yellow(squirrel),
+  11: gradient.fruit(fire),
+};
 
 async function startStory() {
-  sound.play(filePath);
+  sound.play(filePath, volume);
 
   figlet.text(
     'Termagotchi',
@@ -104,16 +113,17 @@ const signUp = async () => {
       return signUpUser(answers.username, answers.password);
     })
     .then(() => {
-      storyLine(1);
+      return storyLine(1);
     });
 };
 
 const storyLine = (id = 1) => {
   if (id === 0) {
-    console.log('You are now logged out');
-    return logOutUser();
+    console.log('Thank you for playing!');
+    console.log('Developed by: Jenna Graham, Jessica Martin, Mariah Schock, Colter Garrison');
+    return logOutUser().then(() => startStory());
   }
-  getPromptsById(id).then((prompts) => {
+  return getPromptsById(id).then((prompts) => {
     const {
       prompt,
       happy_choice,
@@ -121,7 +131,8 @@ const storyLine = (id = 1) => {
       happy_path_id,
       neglect_path_id,
     } = prompts;
-    inquirer
+    if (asciiMap[prompts.id]) console.log(asciiMap[prompts.id]);
+    return inquirer
       .prompt([
         {
           name: 'options',
