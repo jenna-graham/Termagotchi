@@ -1,7 +1,7 @@
 {
   "name": "termagotchi",
   "version": "1.0.0",
-  "description": "The Golden Rule: 🦸 🦸‍♂️ Stop starting and start finishing. 🏁",
+  "description": "A terminal based, tamagotchi inspired, choose your own adventure game.",
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
@@ -19,7 +19,7 @@
     "testEnvironment": "node"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jessica Martin, Jenna Graham, Mariah Schock, Colter Garrison",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.18.2",
