@@ -1,6 +1,6 @@
 {
   "name": "termagotchi",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A terminal based, tamagotchi inspired, choose your own adventure game.",
   "main": "index.js",
   "type": "commonjs",
