@@ -50,7 +50,9 @@
     "inquirer": "^8.0.0",
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.7.3",
+    "play-sound": "^1.1.5",
     "prompt-sync": "^4.2.0",
+    "sound-play": "^1.1.0",
     "yargs-parser": "^21.1.1"
   },
   "directories": {

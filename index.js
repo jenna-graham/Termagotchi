@@ -7,7 +7,9 @@ const chalkRainbow = require('chalk-rainbow');
 const gradient = require('gradient-string');
 const inquirer = require('inquirer');
 const figlet = require('figlet');
-
+const sound = require('sound-play');
+const path = require('path');
+const filePath = path.join(__dirname, 'sound.mp3');
 const { excited } = require('./lib/utils/ascii');
 
 const sleep = (ms = 3000) => new Promise((r) => setTimeout(r, ms));
@@ -15,6 +17,8 @@ const sleep = (ms = 3000) => new Promise((r) => setTimeout(r, ms));
 
 
 async function startStory() {
+  sound.play(filePath);
+
   figlet.text(
     'Termagotchi',
     {
