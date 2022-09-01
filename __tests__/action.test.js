@@ -18,7 +18,6 @@ describe('testing action routes', () => {
         'Walk to the living room and turn on the TV. You are tired and have no time to play.',
       happy_path_id: 2,
       neglect_path_id: 3,
-      is_good: null,
     });
   });
 
