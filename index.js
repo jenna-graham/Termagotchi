@@ -17,7 +17,7 @@ const {
   fire, 
   mushroom,
   portal,
-  taxi2,
+  taxi,
   chocolate,
   spaghetti,
   tokyo,
@@ -34,29 +34,48 @@ const {
   camera,
   playful,
   goblin,
+  forest,
+  pie,
+  skull,
+  parade,
+  cereal,
+  heart,
+  heart2,
+  heart3,
+  suitcase,
 } = require('./lib/utils/ascii');
 
 const sleep = (ms = 3000) => new Promise((r) => setTimeout(r, ms));
 const asciiMap = { 
+  2: forest,
   3: spaghetti,
   4: mushroom,
   5: gradient.pastel(portal),
-  6: taxi2,
+  6: taxi,
   7: chocolate,
+  8: pie,
   9: chalk.yellow(squirrel),
+  10: skull,
   11: gradient.fruit(fire),
   12: tokyo,
   13: trash2,
+  14: parade,
+  15: cereal,
   16: karoke,
   17: gradient.rainbow(tripshroom),
   18: prideful,
+  19: heart,
   20: knife,
+  21: heart2,
   22: circus,
+  23: heart3,
   24: school,
-  25: school,
+  25: suitcase,
+  26: prideful,
   27: toiletPaper,
   28: playful,
   29: spaghetti,
+  30: heart3,
   31: sad,
   32: bedroom,
   33: camera,
@@ -104,10 +123,10 @@ const setUser = async () => {
     ])
     .then((answers) => {
       if (answers.auth === true) {
-        signIn();
+        return signIn();
       }
       if (answers.auth === false) {
-        signUp();
+        return signUp();
       }
     });
 
@@ -132,7 +151,7 @@ const setUser = async () => {
         return signInUser(answers.username, answers.password);
       })
       .then(() => {
-        storyLine(1);
+        return storyLine(1);
       });
   };
 };
@@ -190,11 +209,11 @@ const storyLine = (id = 1) => {
         console.log(options);
         if (options.options === happy_choice) {
           console.clear();
-          storyLine(happy_path_id);
+          return storyLine(happy_path_id);
         }
         if (options.options === neglect_choice) {
           console.clear();
-          storyLine(neglect_path_id);
+          return storyLine(neglect_path_id);
         }
       })
       .catch((error) => {
