@@ -11,7 +11,6 @@ const figlet = require('figlet');
 const player = require('play-sound')();
 const path = require('path');
 const filePath = path.join(__dirname, 'sound.mp3');
-const volume = 0.1;
 const { 
   excited, 
   squirrel,
