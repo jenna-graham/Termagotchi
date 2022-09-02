@@ -7,7 +7,6 @@ const chalkRainbow = require('chalk-rainbow');
 const gradient = require('gradient-string');
 const inquirer = require('inquirer');
 const figlet = require('figlet');
-// const sound = require('sound-play');
 const player = require('play-sound')();
 const path = require('path');
 const filePath = path.join(__dirname, 'sound.mp3');
@@ -45,7 +44,8 @@ const {
   suitcase,
 } = require('./lib/utils/ascii');
 
-const sleep = (ms = 3000) => new Promise((r) => setTimeout(r, ms));
+const sleep = (ms = 5000) => new Promise((r) => setTimeout(r, ms));
+
 const asciiMap = { 
   2: gradient.summer(forest),
   3: gradient.fruit(spaghetti),
@@ -84,8 +84,6 @@ const asciiMap = {
 };
 
 async function startStory() {
-  // sound.play(filePath, volume);
-  
   player.play(filePath, (err) => {
     if (err) console.log(`Could not play sound: ${err}`);
   });
@@ -185,7 +183,7 @@ const storyLine = (id = 1) => {
   if (id === 0) {
     console.log('Thank you for playing!');
     console.log('Developed by: Jenna Graham, Jessica Martin, Mariah Schock, Colter Garrison');
-    return logOutUser().then(() => startStory());
+    return logOutUser().then(() => storyEnd());
   }
   return getPromptsById(id).then((prompts) => {
     const {
@@ -221,5 +219,26 @@ const storyLine = (id = 1) => {
       });
   });
 };
+
+async function storyEnd() {
+  figlet.text(
+    'Termagotchi',
+    {
+      font: 'puffy',
+      horizontalLayout: 'fitted',
+      verticalLayout: 'fitted',
+      width: 80,
+      whitespaceBreak: true,
+    },
+    (err, data) => {
+      if (err) {
+        console.log('Something went wrong...');
+        console.dir(err);
+        return;
+      }
+      console.log(chalkRainbow(data));
+    }
+  );
+}
 
 startStory().then(() => setUser());
