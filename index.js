@@ -119,10 +119,10 @@ const setUser = async () => {
     ])
     .then((answers) => {
       if (answers.auth === true) {
-        signIn();
+        return signIn();
       }
       if (answers.auth === false) {
-        signUp();
+        return signUp();
       }
     });
 
@@ -147,7 +147,7 @@ const setUser = async () => {
         return signInUser(answers.username, answers.password);
       })
       .then(() => {
-        storyLine(1);
+        return storyLine(1);
       });
   };
 };
@@ -205,11 +205,11 @@ const storyLine = (id = 1) => {
         console.log(options);
         if (options.options === happy_choice) {
           console.clear();
-          storyLine(happy_path_id);
+          return storyLine(happy_path_id);
         }
         if (options.options === neglect_choice) {
           console.clear();
-          storyLine(neglect_path_id);
+          return storyLine(neglect_path_id);
         }
       })
       .catch((error) => {
