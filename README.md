@@ -3,13 +3,13 @@
 
 ## **Description:**
 
-A terminal based, Tamagotchi inspired, choose your own adventure story. The choices you make will determine whether or not your Termagotchi will stay with you or run away. Choose wisely!
+A terminal based, Tamagotchi inspired, choose your own adventure story. The choices you make will determine whether or not your Termagotchi will stay with you or run away. Choose wisely! (Works best on a Mac)
 
     terminal command: npx the-termagotchi
 
 ## **About the project:**
 
-This project was developed in a one week sprint using express and inquirer. Inquirer is the command line interface that users see. Express is used to create the database which stores the players username and password. It also stores the actions/prompts, and directs the player down the correct path based on their choice. 
+This project was developed in a one week sprint using express and inquirer. Inquirer is the command line interface that users see. Express is used to create the database which stores the players username and password. It also stores the actions/prompts, and directs the player down the correct path based on their choice.
 
 ## **About the Developers:**
 
