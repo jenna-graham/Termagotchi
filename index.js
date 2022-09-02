@@ -7,10 +7,10 @@ const chalkRainbow = require('chalk-rainbow');
 const gradient = require('gradient-string');
 const inquirer = require('inquirer');
 const figlet = require('figlet');
-const sound = require('sound-play');
+// const sound = require('sound-play');
+const player = require('play-sound')();
 const path = require('path');
 const filePath = path.join(__dirname, 'sound.mp3');
-const volume = 0.1;
 const { 
   excited, 
   squirrel,
@@ -65,7 +65,11 @@ const asciiMap = {
 };
 
 async function startStory() {
-  sound.play(filePath, volume);
+  // sound.play(filePath, volume);
+  
+  player.play(filePath, (err) => {
+    if (err) console.log(`Could not play sound: ${err}`);
+  });
 
   figlet.text(
     'Termagotchi',
