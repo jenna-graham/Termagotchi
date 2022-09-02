@@ -15,7 +15,7 @@ This project was developed in a one week sprint using express and inquirer. Inqu
 
 ### | [**Jenna Graham**](https://www.linkedin.com/in/jenna-lee-graham/) |  
 
-<img src="./assets/jennaheadshot%20copy.jpg" width="250" height="250" style="object-fit:cover"> 
+<img src="./assets/jenna-readMe.jpg" width="250" height="250" style="object-fit:cover"> 
 
 Jenna is a Software Developer based in Portland, Oregon. When she is not in front of the computer screen she enjoys yoga, photography and teaches a dance called Kizomba. She has one pet: Redd.
 
@@ -33,6 +33,6 @@ Colter is a Full Stack Software Developer in Corvallis, Oregon. Outside of codin
 
 ### | [**Mariah Schock**](https://www.linkedin.com/in/mariah-schock/) | 
 
-<img src="./assets/Mariah.jpg" width="250" height="250" style="object-fit:cover">
+<img src="./assets/mariah-readMe.jpg" width="250" height="250" style="object-fit:cover">
 
 Mariah is a Full Stack Software Developer in Sherwood, Oregon. Previously in healthcare, in 2022, she decided to pursue a career in software development. Outside of coding, she enjoys hiking and paddle-boarding. She has three pets: Leo, TK (Thicc Kitty), and Phoebe.
