@@ -44,7 +44,10 @@ const {
   suitcase,
 } = require('./lib/utils/ascii');
 
-const sleep = (ms = 5000) => new Promise((r) => setTimeout(r, ms));
+// hope this makes more sense now that you've done a deliverable on promises!
+// i generally like to use res as my variable name in promises to make it 
+// clear its the resovle function
+const sleep = (ms = 5000) => new Promise((res) => setTimeout(res, ms));
 
 const asciiMap = { 
   2: gradient.summer(forest),
@@ -127,31 +130,31 @@ const setUser = async () => {
         return signUp();
       }
     });
+};
 
-  const signIn = async () => {
-    inquirer
-      .prompt([
-        {
-          prefix: '*',
-          name: 'username',
-          message: 'Enter your Termagotchi name:',
-        },
-        {
-          prefix: '*',
-          name: 'password',
-          type: 'password',
-          message: 'Enter your password',
-        },
-      ])
-      .then((answers) => {
-        console.log(chalk.bold(`Welcome back to ${answers.username}!`));
-        console.log(gradient.retro(excited));
-        return signInUser(answers.username, answers.password);
-      })
-      .then(() => {
-        return storyLine(1);
-      });
-  };
+const signIn = async () => {
+  inquirer
+    .prompt([
+      {
+        prefix: '*',
+        name: 'username',
+        message: 'Enter your Termagotchi name:',
+      },
+      {
+        prefix: '*',
+        name: 'password',
+        type: 'password',
+        message: 'Enter your password',
+      },
+    ])
+    .then((answers) => {
+      console.log(chalk.bold(`Welcome back to ${answers.username}!`));
+      console.log(gradient.retro(excited));
+      return signInUser(answers.username, answers.password);
+    })
+    .then(() => {
+      return storyLine(1);
+    });
 };
 
 const signUp = async () => {
